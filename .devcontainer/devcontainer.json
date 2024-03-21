@@ -43,16 +43,12 @@
 	"postStartCommand": "npm run dev",
 	"forwardPorts": [
         80,
-        8080,
         5173
     ],
     "portsAttributes": {
         "80": {
             "label": "Application",
             "onAutoForward": "notify"
-        },
-        "8080": {
-            "label": "phpMyAdmin"
         },
         "5173": {
             "label": "Vite (hmr)"
