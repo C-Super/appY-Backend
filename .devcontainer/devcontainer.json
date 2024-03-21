@@ -1,0 +1,62 @@
+// https://aka.ms/devcontainer.json
+{
+	"name": "Existing Docker Compose (Extend)",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "laravel.test",
+	"workspaceFolder": "/var/www/html",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"onecentlin.laravel-extension-pack",
+				"Vue.volar",
+				"nhedger.inertia",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"bradlc.vscode-tailwindcss",
+				"cpylua.language-postcss",
+				"GitHub.copilot-chat",
+				"ms-azuretools.vscode-docker",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"xdebug.php-debug",
+				"ms-vscode.makefile-tools"
+			],
+			"settings": {
+				"editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.fixAll.eslint": "always"
+                },
+                "files.autoSave": "onFocusChange",
+                "[vue]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[javascript]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "prettier.prettierPath": "./node_modules/prettier"
+			}
+		}
+	},
+	"remoteUser": "sail",
+	"postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true && cp .env.example .env && composer install && php artisan key:generate && php artisan storage:link --force && npm install",
+	"postStartCommand": "npm run dev",
+	"forwardPorts": [
+        80,
+        8080,
+        5173
+    ],
+    "portsAttributes": {
+        "80": {
+            "label": "Application",
+            "onAutoForward": "notify"
+        },
+        "8080": {
+            "label": "phpMyAdmin"
+        },
+        "5173": {
+            "label": "Vite (hmr)"
+        }
+    }// "runServices": [],
+	// "shutdownAction": "none",
+}
