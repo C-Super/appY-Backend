@@ -25,7 +25,7 @@ phpstan: ## Run linter with Larastan
 
 .PHONY: eslint
 eslint: ## Run linter with ESLint
-	npx eslint --ext .js,.vue --ignore-path .gitignore --fix resources/js
+	npx eslint --ext .js,.vue --ignore-path .gitignore
 
 lint: phpstan eslint ## Run all linters
 
