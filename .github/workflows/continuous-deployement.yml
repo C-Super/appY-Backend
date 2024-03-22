@@ -20,4 +20,4 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: ls && cd api.appy.kuasar.xyz && ./deploy.sh
+          script: ls
