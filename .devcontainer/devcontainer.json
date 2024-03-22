@@ -20,7 +20,8 @@
 				"ms-azuretools.vscode-docker",
 				"VisualStudioExptTeam.vscodeintellicode",
 				"xdebug.php-debug",
-				"qwtel.sqlite-viewer"
+				"qwtel.sqlite-viewer",
+				"github.vscode-github-actions"
 			],
 			"settings": {
 				"editor.formatOnSave": true,
@@ -39,7 +40,7 @@
 		}
 	},
 	"remoteUser": "sail",
-	"postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true && cp .env.example .env && composer install && php artisan key:generate && php artisan storage:link --force && npm install && php artisan migrate --force --seed",
+	"postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true && cp .env.example .env && composer install && php artisan key:generate && php artisan storage:link --force && npm install && php artisan migrate:refresh --force --seed",
 	"postStartCommand": "npm run dev",
 	"forwardPorts": [
         80,
