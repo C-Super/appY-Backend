@@ -1,0 +1,3 @@
+[submodule "appY-Documentation"]
+	path = appY-Documentation
+	url = https://github.com/C-Super/appY-Documentation.git
