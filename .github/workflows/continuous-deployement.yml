@@ -17,7 +17,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: cd api.appy.kuasar.xyz && ./deploy.sh
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          script: whoami
