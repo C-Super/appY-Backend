@@ -54,8 +54,3 @@ ziggy: ## Generate routes for Vue
 zora: ## Generate translations keys for Vue
 	php artisan zora:generate
 	npx prettier --write resources/js/zora.js
-
-.PHONY: deploy
-deploy: ## Deploy app to pingouin server
-#git remote add pingouin daniel.mendesgo@pingouin.heig-vd.ch:/home/projart/2023/50/super/super-laravel
-	git push pingouin main
