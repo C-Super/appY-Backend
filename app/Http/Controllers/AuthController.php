@@ -24,10 +24,10 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password),
             ]);
 
-            $user->sendEmailVerificationNotification();
+            //$user->sendEmailVerificationNotification();
 
             return response()->json([
-                'message' => 'Successfully created user! Please check your email to verify your account.',
+                'message' => 'Successfully created user!',
             ], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
