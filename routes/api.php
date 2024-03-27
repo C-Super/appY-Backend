@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController; // Assurez-vous d'importer AuthController correctement
+use Illuminate\Support\Facades\Route; // Assurez-vous d'importer AuthController correctement
 
 // Route pour obtenir les informations de l'utilisateur actuellement connecté
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -10,8 +10,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Groupez les routes qui ne nécessitent pas d'authentification
-Route::post('/user/register', [AuthController::class, 'register']);
-Route::post('/user/login', [AuthController::class, 'login']);
+Route::post('/user/register', [AuthController::class, 'register'])->middleware('throttle:10,1');
+Route::post('/user/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
 
 // Groupez les routes qui nécessitent une authentification
 Route::middleware('auth:sanctum', 'verified')->group(function () {

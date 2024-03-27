@@ -63,7 +63,7 @@ class AuthTest extends TestCase
         $token = $user->createToken('API Token')->plainTextToken;
 
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ])->postJson('/api/user/refresh-token');
 
         $response
